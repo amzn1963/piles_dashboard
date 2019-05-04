@@ -18,56 +18,69 @@
     <script type="text/javascript" src="static/js/graph.js"></script>
 
 </head>
-</body>
-<main>
-    <section class="section">
-        <div class="container-fluid">
-
-            <div class="row">
-                <div class="col-xs-12 col-sm-12">
-                    <h1 class="section-heading">Gender In QA</h1>
-                    <div id="discipline-selector"></div>
+<body>
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <h2 class="section-heading">Gender In Quality Assurance</h2>
+                            <div id="shift-selector"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <p class="section-paragraph">Gender at the Direct Process level:</p>
+                    </div>
+                </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-6">
+                        <i class="fa fa-female fa-gender" aria-hidden="true"></i> <span class="number-box" id="percent-of-women-counters"></span>
+                        <i class="fa fa-male fa-gender" aria-hidden="true"></i> <span class="number-box" id="percent-of-men-counters"></span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12">
-                    <p class="section-paragraph">Gender at the Direct Process level:</p>
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-lg-6">
-                    <i class="fa fa-female fa-gender" aria-hidden="true"></i> <span class="number-box" id="percent-of-women-counters"></span>
-                    <i class="fa fa-male fa-gender" aria-hidden="true"></i> <span class="number-box" id="percent-of-men-counters"></span>
-                </div>
-            </div>
-        </div>
     </section>
 
     <section class="section">
-        <div class="container-fluid">
-
+        <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-3 text-center">
-                    <p class="section-paragraph">Direct Labour (Counters)</p>
+                <div class="col-xs-12 col-sm-4 text-center">
+                    <p class="section-paragraph">Direct Labour (Counter)</p>
                 </div>
-                <div class="col-xs-12 col-sm-3 text-center">
-                    <p class="section-paragraph">Indirect Labour (Auditors)</p>
+                <div class="col-xs-12 col-sm-4 text-center">
+                    <p class="section-paragraph">Indirect Labour (Auditor)</p>
                 </div>
-                <div class="col-xs-12 col-sm-3 text-center">
-                    <p class="section-paragraph">Indirect Labour (Researchers)</p>
-                </div>
-                <div class="col-xs-12 col-sm-3 text-center">
-                    <p class="section-paragraph">Indirect Labour (Combined)</p>
+                <div class="col-xs-12 col-sm-4 text-center">
+                    <p class="section-paragraph">Indirect Labour (Researcher)</p>
                 </div>
             </div>
-
-            <div class="Row">
-                <div class="col-xs-12 col-sm-3 text-center" id="direct-counting" class="custom-chart"></div>
-                <div class="col-xs-12 col-sm-3 text-center" id="indirect-auditing" class="custom-chart"></div>
-                <div class="col-xs-12 col-sm-3 text-center" id="indirect-researching" class="custom-chart"></div>
-                <div class="col-xs-12 col-sm-3 text-center" id="indirect-combined" class="custom-chart"></div>
+                <div class="Row">
+                <div class="col-xs-12 col-sm-4 text-center" id="direct-counting" class="custom-chart"></div>
+                <div class="col-xs-12 col-sm-4 text-center" id="indirect-auditing" class="custom-chart"></div>
+                <div class="col-xs-12 col-sm-4 text-center" id="indirect-researching" class="custom-chart"></div>
             </div>
         </div>
-
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 text-center">
+                <p class="section-paragraph">Distribution of higher skillset is weighted towards female</p>
+            </div>
+            <div class="Row">
+                <div class="col-xs-12 col-sm-12 text-center" id="indirect-combined" class="custom-chart"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 text-center">
+                <p class="section-paragraph">Gender training shows a correlation between length of service and skillset</p>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 text-center" id="yrs-service" class="custom-chart"></div>
+            </div>
+        </div>
     </section>
 </main>
 </body>

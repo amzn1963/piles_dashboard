@@ -5,9 +5,12 @@ queue()
 function makeGraphs(error, deptData) {
     var ndx = crossfilter(deptData);
     
-    
+    deptData.forEach(function(d) {
+        d.yrs_since_qual = parseInt(d["yrs.since.qual"]);
+        d.yrs_service = parseInt(d["yrs.service"]);
+    })
 
-    show_discipline_selector(ndx);
+    show_shift_selector(ndx);
 
     show_percent_that_are_counters(ndx, "Female", "#percent-of-women-counters");
     show_percent_that_are_counters(ndx, "Male", "#percent-of-men-counters");
@@ -16,15 +19,16 @@ function makeGraphs(error, deptData) {
     show_auditor_distribution(ndx)
     show_researcher_distribution(ndx)
     show_rank_distribution(ndx)
+    show_service_to_qualification_correlation(ndx)
 
     dc.renderAll();
 }
 
-function show_discipline_selector(ndx) {
+function show_shift_selector(ndx) {
     var dim = ndx.dimension(dc.pluck('discipline'));
     var group = dim.group();
 
-    dc.selectMenu("#discipline-selector")
+    dc.selectMenu("#shift-selector")
         .dimension(dim)
         .group(group);
 }
@@ -70,37 +74,37 @@ function show_percent_that_are_counters(ndx, gender, element) {
 }
 
 function show_gender_balance(ndx) {
-    var dim = ndx.dimension(dc.pluck('sex'));
+    var dim = ndx.dimension(dc.pluck("sex"));
     var group = dim.group();
 
     dc.barChart("#direct-counting")
-        .width(216)
-        .height(261)
-        .margins({ top: 10, right: 20, bottom: 30, left: 20 })
+        .width(400)
+        .height(300)
+        .margins({ top: 10, right: 60, bottom: 30, left: 60 })
         .dimension(dim)
         .group(group)
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .xAxisLabel("Gender")
-        .yAxis().ticks(15);
+        .yAxis().ticks(12);
 }
 
 function show_auditor_distribution(ndx) {
     
      var dim = ndx.dimension(dc.pluck("sex"));
      
-     var auditorCounterByGender = dim.group().reduce(
+     var auditorByGender = dim.group().reduce(
          function (p, v) {
              p.total++;
-             if(v.rank == "AuditorCounter") {
+             if(v.rank == "Auditor") {
                  p.match++;
              }
              return p;
          },
          function (p, v) {
              p.total--;
-             if(v.rank == "AuditorCounter") {
+             if(v.rank == "Auditor") {
                  p.match--;
              }
              return p;
@@ -132,16 +136,16 @@ function show_auditor_distribution(ndx) {
          );
             
     }
-    var auditorCounterByGender = rankByGender(dim, "AuditorCounter");
+    var auditorByGender = rankByGender(dim, "Auditor");
     
     
     
 
     dc.barChart("#indirect-auditing")
-        .width(216)
-        .height(261)
+        .width(400)
+        .height(300)
         .dimension(dim)
-        .group(auditorCounterByGender, "AuditorCounter")
+        .group(auditorByGender, "Auditor")
         .valueAccessor(function (d) {
             if(d.value.total > 0) {
                 return (d.value.match) 
@@ -149,29 +153,29 @@ function show_auditor_distribution(ndx) {
                 return 0;
             }
         })
-        .margins({ top: 10, right: 20, bottom: 30, left: 20 })
+        .margins({ top: 10, right: 60, bottom: 30, left: 60 })
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .xAxisLabel("Gender")
-        .yAxis().ticks(4);
+        .yAxis().ticks(5);
 }
 
 function show_researcher_distribution(ndx) {
     
      var dim = ndx.dimension(dc.pluck("sex"));
      
-     var researcherCounterByGender = dim.group().reduce(
+     var researcherByGender = dim.group().reduce(
          function (p, v) {
              p.total++;
-             if(v.rank == "ResearcherCounter") {
+             if(v.rank == "Researcher") {
                  p.match++;
              }
              return p;
          },
          function (p, v) {
              p.total--;
-             if(v.rank == "ResearcherCounter") {
+             if(v.rank == "Researcher") {
                  p.match--;
              }
              return p;
@@ -203,16 +207,16 @@ function show_researcher_distribution(ndx) {
          );
             
     }
-    var researcherCounterByGender = rankByGender(dim, "ResearcherCounter");
+    var researcherByGender = rankByGender(dim, "Researcher");
     
     
     
 
     dc.barChart("#indirect-researching")
-        .width(216)
-        .height(261)
+        .width(400)
+        .height(300)
         .dimension(dim)
-        .group(researcherCounterByGender, "ResearcherCounter")
+        .group(researcherByGender, "Researcher")
         .valueAccessor(function (d) {
             if(d.value.total > 0) {
                 return (d.value.match) 
@@ -220,12 +224,12 @@ function show_researcher_distribution(ndx) {
                 return 0;
             }
         })
-        .margins({ top: 10, right: 20, bottom: 30, left: 20 })
+        .margins({ top: 10, right: 60, bottom: 30, left: 60 })
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .xAxisLabel("Gender")
-        .yAxis().ticks(4);
+        .yAxis().ticks(5);
 }
 
 
@@ -255,16 +259,16 @@ function show_rank_distribution(ndx) {
     
     var dim = ndx.dimension(dc.pluck("sex"));
     var counterByGender = rankByGender(dim, "Counter");
-    var auditorCounterByGender = rankByGender(dim, "AuditorCounter");
-    var researcherCounterByGender = rankByGender(dim, "ResearcherCounter");
+    var auditorByGender = rankByGender(dim, "Auditor");
+    var researcherByGender = rankByGender(dim, "Researcher");
     
     dc.barChart("#indirect-combined")
-    .width(216)
-    .height(261)
+    .width(600)
+    .height(400)
     .dimension(dim)
     .group(counterByGender, "Counter")
-    .stack(auditorCounterByGender, "AuditorCounter")
-    .stack(researcherCounterByGender, "ResearcherCounter")
+    .stack(researcherByGender, "Researcher")
+    .stack(auditorByGender, "Auditor")
     .valueAccessor(function(d) {
         if(d.value.total > 0) {
             return (d.value.match / d.value.total) * 100;
@@ -274,9 +278,43 @@ function show_rank_distribution(ndx) {
     })
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
-    .legend(dc.legend().x(200).y(20).itemHeight(15).gap(5))
-    .margins({ top: 10, right: 20, bottom: 30, left: 20 })
+    .legend(dc.legend().x(500).y(0).itemHeight(15).gap(5))
+    .margins({ top: 60, right: 20, bottom: 60, left: 30 })
     .transitionDuration(500)
     .xAxisLabel("Gender")
-    .yAxis().ticks(6);
+}
+
+function show_service_to_qualification_correlation(ndx) {
+    var genderColors = d3.scale.ordinal()
+        .domain(["Female", "Male"])
+        .range(["red", "blue"]);
+        
+    var eDim =ndx.dimension(dc.pluck("yrs_service"));
+    var experienceDim = ndx.dimension(function(d) {
+        return [d.yrs_service, d.yrs_since_qual, d.rank, d.sex];
+    });
+    var experienceQualGroup = experienceDim.group();
+    
+    var minExperience = eDim.bottom(1)[0].yrs_service;
+    var maxExperience = eDim.top(1)[0].yrs_service;
+    
+    dc.scatterPlot("#yrs-service")
+        .width(750)
+        .height(500)
+        .x(d3.scale.linear().domain([minExperience, maxExperience]))
+        .brushOn(false)
+        .symbolSize(8)
+        .clipPadding(10)
+        .yAxisLabel("Years since Qualification")
+        .xAxisLabel("Years of Service")
+        .title(function(d) {
+            return d.key[2] + " qual " + d.key[1];
+        })
+        .colorAccessor(function (d) {
+            return d.key[3];
+        })
+        .colors(genderColors)
+        .dimension(experienceDim)
+        .group(experienceQualGroup)
+        .margins({top: 10, right: 50, bottom: 75, left: 75})
 }

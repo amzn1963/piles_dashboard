@@ -1,5 +1,5 @@
 
-.section-heading, #discipline-selector {
+.section-heading, #shift-selector {
 	display: inline-block;	
 	float: none;
 	margin: 0;
@@ -9,7 +9,7 @@
 	margin-bottom: 50px;
 }
 
-#discipline-selector {
+#shift-selector {
 	margin-left: 15px;
 }
 
@@ -27,14 +27,16 @@
 }
 
 .custom-chart {
+	padding: 10px 10px;
 	margin-bottom: 40px;
 }
 
 .section {
-	border-bottom: 1px solid #e6e6e6;
-	padding: 30px 0;
+	margin-top: 40px;
+	padding: 30px 30px;
 }
 
 .section-paragraph {
 	line-height: 1.2;
+	font-weight: 500;
 }
