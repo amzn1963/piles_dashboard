@@ -25,7 +25,7 @@ function makeGraphs(error, deptData) {
 }
 
 function show_shift_selector(ndx) {
-    var dim = ndx.dimension(dc.pluck('discipline'));
+    var dim = ndx.dimension(dc.pluck("shift"));
     var group = dim.group();
 
     dc.selectMenu("#shift-selector")
@@ -87,7 +87,7 @@ function show_gender_balance(ndx) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .xAxisLabel("Gender")
-        .yAxis().ticks(12);
+        .yAxis().ticks(8);
 }
 
 function show_auditor_distribution(ndx) {
@@ -254,21 +254,23 @@ function show_rank_distribution(ndx) {
             function () {
                 return {total: 0, match: 0};
             }
-           );
+        );
     }  
     
     var dim = ndx.dimension(dc.pluck("sex"));
-    var counterByGender = rankByGender(dim, "Counter");
-    var auditorByGender = rankByGender(dim, "Auditor");
     var researcherByGender = rankByGender(dim, "Researcher");
+    var auditorByGender = rankByGender(dim, "Auditor");
+    var counterByGender = rankByGender(dim, "Counter");
+    
+    
     
     dc.barChart("#indirect-combined")
     .width(600)
     .height(400)
     .dimension(dim)
     .group(counterByGender, "Counter")
-    .stack(researcherByGender, "Researcher")
     .stack(auditorByGender, "Auditor")
+    .stack(researcherByGender, "researcher")
     .valueAccessor(function(d) {
         if(d.value.total > 0) {
             return (d.value.match / d.value.total) * 100;
@@ -283,6 +285,7 @@ function show_rank_distribution(ndx) {
     .transitionDuration(500)
     .xAxisLabel("Gender")
 }
+    
 
 function show_service_to_qualification_correlation(ndx) {
     var genderColors = d3.scale.ordinal()
@@ -304,7 +307,7 @@ function show_service_to_qualification_correlation(ndx) {
         .x(d3.scale.linear().domain([minExperience, maxExperience]))
         .brushOn(false)
         .symbolSize(8)
-        .clipPadding(10)
+        .clipPadding(5)
         .yAxisLabel("Years since Qualification")
         .xAxisLabel("Years of Service")
         .title(function(d) {
