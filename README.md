@@ -27,3 +27,21 @@ FEATURES
 •	The ‘Select all’ selector automatically updates the percentage of ‘Gender in the department’ display and the three graphics which are related.
 
 •	A series of 5  graphs displaying the different data sets
+
+FEATURES LEFT TO IMPLEMENT
+•	Would like to include a separate data set for personnel who have undergone cross training in other departments – again gender and shift specific, this will be useful, when required to support main departmental core processes when high volume instances occur.
+
+TECHNOLOGIES USED
+•	HTML5 Bootstrap Framework
+•	JavaScript d3, crossfilters, dc, queue & graphs to manage data & graphics
+•	CSS for styles
+•	Excel for creation of the data .csv set
+
+TESTING
+•	Changing of data to test functionality of graphs
+•	Changing of size of graphs, ticks,(elastic) 
+•	Testing the shift selector for functionality
+
+DEPLOYMENT
+•	As the website was being built and down to personal work issues (full time employed, high level of overtime), commits were spread out over time.  Therefore, heavy and long coding work was carried out when time off permitted, and the commits were made.  GitHUb is up to date  and has been viewed by my mentor.
+
