@@ -42,35 +42,87 @@ Table of Contents</h2>
      <a href="#correlation">Correlation Gender - Linear Graph</a>
     </li>
   </ol>
-UX
-•	The data collected in the .csv file relates to real time personnel; this is the department I currently manage.
+ <li>
+ <a href="#features-left-to-implement">FEATURES LEFT TO IMPLEMENT</a>
+ </li>
+ <li>
+  <a href="#technologies-used">TECHNOLOGIES USED</a>
+ </li>
+ <li>
+  <a href="#testing">TESTING</a>
+ </li>
+ <li>
+  <a href="#deployment">DEPLOYMENT</a>
+ </li>
+ <li>
+  <a href="#credits">CREDITS</a>
+ </li>
+</ol>
+<h2>
+  <a id="user-content-ux" class="anchor" aria-hidden="true" href="#ux"></a>
+UX</h2>
+<p>
+The data collected in the .csv file relates to real time personnel; this is the department I currently manage.</p>
+<p>This project can assist managers with decision making regarding future training of personnel to obtain higher skills.</p>
+<p>It will also assist managers (when checking the holiday tracker) to be able to utilise the personnel to cover daily bin checks (direct counting), auditing of department processes and deep dive research processes.</P>
+<p>The ‘Select all’ will give the user the option to either select all or to specify day or night shift personnel.</p>
+<p>The ‘Select all’ selector automatically updates the percentage of ‘Gender in the department’ display and the three graphics which are related.</p>
+<p>All graphics are equally spaced out in different rows to give an uncluttered feel to the dashboard.</p>
 
-•	This project can assist managers with decision making regarding future training of personnel to obtain higher skills.
+ <h2>
+  <a id="user-content-features" class="anchor" aria-hidden="true" href="#features"></a>
+Features</h2>
+<ol>
+  <li>
+ <h3>
+  <a id="user-content-single-page" class="anchor" aria-hidden="true" href="#single-page"></a>
+Home Page</h3>
 
-•	It will also assist managers (when checking the holiday tracker) to be able to utilise the personnel to cover daily bin checks (direct counting), auditing of department processes and deep dive research processes.
+ <p>A single page application with responsive chart containers but best viewed on large screen.</p>
+  </li>
+ <li>
+ <h3>
+  <a id="user-content-select" class="anchor" aria-hidden="true" href="#select"></a>
+Shift Selector</h3>
+ <p>A ‘Select’ button which gives the user an option of shift personnel (Day & Night) or combined.</p>
+  </li>
+  <li>
+ <h3>
+  <a id="user-content-percentage-display" class="anchor" aria-hidden="true" href="#percentage-display"></a>
+Gender Percentage Display</h3>
+ <p>The display of the percentage of gender which adjusts to either selection of shift or to what process is selected or both.</p>
+  </li>
+  <li>
+ <h3>
+  <a id="user-content-Counter" class="anchor" aria-hidden="true" href="#counter"></a>
+Direct Labour - Counter Graph</h3>
+ <p>The first graphic relates to the direct (productivity based) process – this is a compulsory and prerequisite process all personnel must achieve before attaining a higher skillset.  Again, it responds to gender and shift selection.</p>
+  </li>
+  <li>
+ <h3>
+  <a id="user-content-auditor" class="anchor" aria-hidden="true" href="#auditor"></a>
+Indirect Labour - Auditor Graph</h3>
+ <p>The second graphic relates to the indirect (off task based) process – this is the next step for personnel looking to advance in the department.  Again, it responds to gender and shift selection.</p>
+  </li>
+  <li>
+ <h3>
+  <a id="user-content-researcher" class="anchor" aria-hidden="true" href="#researcher"></a>
+Indirect Labour - Researcher Graph</h3>
+ <p>The third graphic relates to the indirect (off task based) process – this is the final step for personnel looking to advance in the department.  Again, it responds to gender and shift selection.</p>
+  </li>
+ <li>
+ <h3>
+  <a id="user-content-combined" class="anchor" aria-hidden="true" href="#combined"></a>
+Combined Labour - Stacked Graph</h3>
+ <p>The fourth graphic relates to the combined three processes mentioned above – this illustrates the distribution of gender and processes (direct & indirect).  This again is responsive to the higher skillset (auditor & researcher).</p>
+  </li>
+ <li>
+ <h3>
+  <a id="user-content-correlation" class="anchor" aria-hidden="true" href="#correlation"></h3>
+ <p>The fifth and final graphic relates to the correlation of time of service against years since qualification (training of higher skillset).  It shows an upturn to points which indicate generally as personnel are employed at this department, their skillset increases.  There are a few outliers but that is down to the choice of the individual personnel. (Training to learn a higher skillset is not compulsory).</p>
+  </li>
+ </ol>
 
-•	The ‘Select all’ will give the user the option to either select all or to specify day or night shift personnel.
-
-•	The ‘Select all’ selector automatically updates the percentage of ‘Gender in the department’ display and the three graphics which are related.
-
-•	All graphics are equally spaced out in different rows to give an uncluttered feel to the dashboard.
-
-FEATURES
-•	A single page application with responsive chart containers but best viewed on large screen.
-
-•	A ‘Select’ button which gives the user an option of shift personnel (Day & Night) or combined
-
-•	The display of the percentage of gender which adjusts to either selection of shift or to what process is selected or both.
-
-•	The first graphic relates to the direct (productivity based) process – this is a compulsory and prerequisite process all personnel must achieve before attaining a higher skillset.  Again, it responds to gender and shift selection.
-
-•	The second graphic relates to the indirect (off task based) process – this is the next step for personnel looking to advance in the department.  Again, it responds to gender and shift selection.
-
-•	The third graphic relates to the indirect (off task based) process – this is the final step for personnel looking to advance in the department.  Again, it responds to gender and shift selection.
-
-•	The fourth graphic relates to the combined three processes mentioned above – this illustrates the distribution of gender and processes (direct & indirect).  This again is responsive to the higher skillset (auditor & researcher).
-
-•	The fifth and final graphic relates to the correlation of time of service against years since qualification (training of higher skillset).  It shows an upturn to points which indicate generally as personnel are employed at this department, their skillset increases.  There are a few outliers but that is down to the choice of the individual personnel. (Training to learn a higher skillset is not compulsory).
 
 FEATURES LEFT TO IMPLEMENT
 •	Cross Training
