@@ -118,43 +118,57 @@ Combined Labour - Stacked Graph</h3>
   </li>
  <li>
  <h3>
-  <a id="user-content-correlation" class="anchor" aria-hidden="true" href="#correlation"></h3>
+  <a id="user-content-correlation" class="anchor" aria-hidden="true" href="#correlation"><a/>
+Correlation Gender - Linear Graph</h3>
  <p>The fifth and final graphic relates to the correlation of time of service against years since qualification (training of higher skillset).  It shows an upturn to points which indicate generally as personnel are employed at this department, their skillset increases.  There are a few outliers but that is down to the choice of the individual personnel. (Training to learn a higher skillset is not compulsory).</p>
   </li>
  </ol>
+<h2>
+  <a id="user-content-features-left-to-implement" class="anchor" aria-hidden="true" href="#features-left-to-implement"></a>
+Features Left To Implement</h2>
+<p>	Cross Training, this department is part of the support service within the workplace.  Personnel are encouraged to learn other processes at different departments.  This gives the company flexibility to manpower where high volume of order, holiday cover, and peak demand from customers.  Therefore, a further few graphics would be required depicting the level and quantity of personnel who, when required, can be guested out to other departments.</p> 
 
+<h2>
+  <a id="user-content-technologies-used" class="anchor" aria-hidden="true" href="#technologies-used"></a>
+Technologies Used</h2>
+ <p>The framework used was bootstrap (see link https://getbootstrap.com/) which also gave me the CSS stylesheets that was required. These gave me the structure that I required.</p>
+<p>I was impressed by one of the tutorials demonstrating different fonts and therefore I included fontawesome (see link https://fontawesome.com/).</p>
+<p>All data is stored into a .csv file – originally this data were compiled using Excel.</p>
+<p>To produce all the visualizations, JavaScript became an important feature.  This included the following:</p>
+<p>D3.min.js</p>
+<p>•	Crossfilter.min.js</p>
+<p>	DC.min.js</p>
+<p>	Queue.min.js</p>
+<p>	Graph.js</p>
 
-FEATURES LEFT TO IMPLEMENT
-•	Cross Training
-This department is part of the support service within the workplace.  Personnel are encouraged to learn other processes at different departments.  This gives the company flexibility to manpower where high volume of order, holiday cover, and peak demand from customers.  Therefore, a further few graphics would be required depicting the level and quantity of personnel who, when required, can be guested out to other departments. 
-    TECHNOLOGIES USED
-•	The framework used was bootstrap (see link https://getbootstrap.com/) which also gave me the CSS stylesheets that was required. These gave me the structure that I required.
-•	I was impressed by one of the tutorials demonstrating different fonts and therefore I included fontawesome (see link https://fontawesome.com/). 
-•	All data is stored into a .csv file – originally this data were compiled using Excel.
-•	To produce all the visualizations, JavaScript became an important feature.  This included the following:
-•	D3.min.js
-•	Crossfilter.min.js
-•	DC.min.js
-•	Queue.min.js
-•	Graph.js
-TESTING
-•	Changing of data to test functionality of graphs
-•	Changing of size of graphs, ticks,(elastic) 
-•	Testing the shift selector for functionality
-•	Using Chrome as my default browser I used its development tools to check for errors or warnings – none present.
-•	I have run the CSS through a validation site (see link https://jigsaw.w3.org/css-validator/) 
+<h2>
+  <a id="user-content-testing" class="anchor" aria-hidden="true" href="#testing"></a> 
+Testing</h2>
+
+<p>Changing of data to test functionality of graphs</p>
+<p>Changing of size of graphs, ticks,(elastic)</p>
+<p>Testing the shift selector for functionality</p>
+<p>Using Chrome as my default browser I used its development tools to check for errors or warnings – none present.</p>
+<p>I have run the CSS through a validation site (see link https://jigsaw.w3.org/css-validator/)</p> 
 
 <p><a href="http://jigsaw.w3.org/css-validator/check/referer">
 <img style="border:0;width:88px;height:31px"
 src=http://jigsaw.w3.org/css-validator/images/vcss alt="Valid CSS!" /></a></p>
            
-•	Please use the following link http://jigsaw.w3.org/css-validator/check/referer (for HTML/XML document only)
-DEPLOYMENT
-•	As the website was being built and down to personal work issues (full time employed, high level of overtime), commits were spread out over time.  Therefore, heavy and long coding work was carried out when time off permitted, and the commits were made.  GitHUb is up to date  and has been viewed by my mentor.
-CREDITS
-•	Content/Structure
-The data content is taken from department headcount 
-The styling of project uses the https://codeinstitute.net/ training module
+<p>Please use the following link http://jigsaw.w3.org/css-validator/check/referer (for HTML/XML document only)</p>
 
-    
+<h2>
+  <a id="user-content-deployment" class="anchor" aria-hidden="true" href="#deployment"></a>
+Deployment</h2>
 
+ <p>This site is hosted using GitHub pages, deployed directly from the master branch. The deployed site will update automatically upon new commits to the master branch. In order for the site to deploy correctly on GitHub pages, the landing page must be named index.html.</p>
+
+<p>To run locally, you can clone this repository directly into the editor of your choice by pasting git clone https://amzn1963.github.io/piles_dashboard/ into your terminal. To cut ties with this GitHub repository, type git remote rm origin into the terminal.</p>
+
+<h2>
+  <a id="user-content-credits" class="anchor" aria-hidden="true" href="#credits"></a>
+Credits</h2>
+<p>
+<p>Content/Structure</p>
+<p>The data content is taken from department headcount</p>
+<p>The styling of project uses the https://codeinstitute.net/ training module</p>
