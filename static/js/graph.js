@@ -74,7 +74,7 @@ function show_percent_that_are_counters(ndx, gender, element) {
 }
 
 function show_gender_balance(ndx) {
-    var dim = ndx.dimension(dc.pluck("sex"));
+    var dim = ndx.dimension(dc.pluck('sex'));
     var group = dim.group();
 
     dc.barChart("#direct-counting")
@@ -87,24 +87,26 @@ function show_gender_balance(ndx) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .xAxisLabel("Gender")
+        .yAxisLabel("Number of personnel")
         .yAxis().ticks(8);
 }
 
 function show_auditor_distribution(ndx) {
     
-     var dim = ndx.dimension(dc.pluck("sex"));
-     
+     var dim = ndx.dimension(dc.pluck('sex'));
+     /*p represents an accumulator - keeps track of the count*/
+     /*v represents the data item*/
      var auditorByGender = dim.group().reduce(
          function (p, v) {
              p.total++;
-             if(v.rank == "Auditor") {
+             if(v.rank == 'Auditor') {
                  p.match++;
              }
              return p;
          },
          function (p, v) {
              p.total--;
-             if(v.rank == "Auditor") {
+             if(v.rank == 'Auditor') {
                  p.match--;
              }
              return p;
@@ -116,6 +118,8 @@ function show_auditor_distribution(ndx) {
 
     function rankByGender (dimension, rank) {
         return dimension.group().reduce(
+      /*p represents an accumulator - keeps track of the count*/
+     /*v represents the data item*/
             function (p, v) {
              p.total++;
              if(v.rank == rank) {
@@ -136,7 +140,7 @@ function show_auditor_distribution(ndx) {
          );
             
     }
-    var auditorByGender = rankByGender(dim, "Auditor");
+    var auditorByGender = rankByGender(dim, 'Auditor');
     
     
     
@@ -145,7 +149,7 @@ function show_auditor_distribution(ndx) {
         .width(400)
         .height(300)
         .dimension(dim)
-        .group(auditorByGender, "Auditor")
+        .group(auditorByGender, 'Auditor')
         .valueAccessor(function (d) {
             if(d.value.total > 0) {
                 return (d.value.match) 
@@ -158,24 +162,26 @@ function show_auditor_distribution(ndx) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .xAxisLabel("Gender")
+        .yAxisLabel("Number of personnel")
         .yAxis().ticks(5);
 }
 
 function show_researcher_distribution(ndx) {
     
-     var dim = ndx.dimension(dc.pluck("sex"));
-     
+     var dim = ndx.dimension(dc.pluck('sex'));
+      /*p represents an accumulator - keeps track of the count*/
+     /*v represents the data item*/
      var researcherByGender = dim.group().reduce(
          function (p, v) {
              p.total++;
-             if(v.rank == "Researcher") {
+             if(v.rank == 'Researcher') {
                  p.match++;
              }
              return p;
          },
          function (p, v) {
              p.total--;
-             if(v.rank == "Researcher") {
+             if(v.rank == 'Researcher') {
                  p.match--;
              }
              return p;
@@ -184,7 +190,8 @@ function show_researcher_distribution(ndx) {
              return {total: 0, match: 0};
          }
          );
-
+         /*p represents an accumulator - keeps track of the count*/
+        /*represents the data item*/
     function rankByGender (dimension, rank) {
         return dimension.group().reduce(
             function (p, v) {
@@ -207,7 +214,7 @@ function show_researcher_distribution(ndx) {
          );
             
     }
-    var researcherByGender = rankByGender(dim, "Researcher");
+    var researcherByGender = rankByGender(dim, 'Researcher');
     
     
     
@@ -216,7 +223,7 @@ function show_researcher_distribution(ndx) {
         .width(400)
         .height(300)
         .dimension(dim)
-        .group(researcherByGender, "Researcher")
+        .group(researcherByGender, 'Researcher')
         .valueAccessor(function (d) {
             if(d.value.total > 0) {
                 return (d.value.match) 
@@ -229,12 +236,14 @@ function show_researcher_distribution(ndx) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .xAxisLabel("Gender")
+        .yAxisLabel("Number of personnel")
         .yAxis().ticks(5);
 }
 
 
 function show_rank_distribution(ndx) {
-    
+     /*p represents an accumulator - keeps track of the count*/
+     /*v represents the data item*/
     function rankByGender(dimension, rank) {
         return dimension.group().reduce(
             function(p, v) {
@@ -257,10 +266,10 @@ function show_rank_distribution(ndx) {
         );
     }  
     
-    var dim = ndx.dimension(dc.pluck("sex"));
-    var researcherByGender = rankByGender(dim, "Researcher");
-    var auditorByGender = rankByGender(dim, "Auditor");
-    var counterByGender = rankByGender(dim, "Counter");
+    var dim = ndx.dimension(dc.pluck('sex'));
+    var researcherByGender = rankByGender(dim, 'Researcher');
+    var auditorByGender = rankByGender(dim, 'Auditor');
+    var counterByGender = rankByGender(dim, 'Counter');
     
     
     
@@ -268,9 +277,9 @@ function show_rank_distribution(ndx) {
     .width(600)
     .height(400)
     .dimension(dim)
-    .group(counterByGender, "Counter")
-    .stack(auditorByGender, "Auditor")
-    .stack(researcherByGender, "researcher")
+    .group(counterByGender, 'Counter')
+    .stack(auditorByGender, 'Auditor')
+    .stack(researcherByGender, 'researcher')
     .valueAccessor(function(d) {
         if(d.value.total > 0) {
             return (d.value.match / d.value.total) * 100;
@@ -284,15 +293,16 @@ function show_rank_distribution(ndx) {
     .margins({ top: 60, right: 20, bottom: 60, left: 30 })
     .transitionDuration(500)
     .xAxisLabel("Gender")
+    .yAxisLabel("Percentage of Personnel")
 }
     
 
 function show_service_to_qualification_correlation(ndx) {
     var genderColors = d3.scale.ordinal()
-        .domain(["Female", "Male"])
-        .range(["red", "blue"]);
+        .domain(['Female', 'Male'])
+        .range(['red', 'blue']);
         
-    var eDim =ndx.dimension(dc.pluck("yrs_service"));
+    var eDim =ndx.dimension(dc.pluck('yrs_service'));
     var experienceDim = ndx.dimension(function(d) {
         return [d.yrs_service, d.yrs_since_qual, d.rank, d.sex];
     });

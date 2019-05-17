@@ -1,11 +1,47 @@
-PROJECT TITLE
-•	Piles Dashboard
+<h1>
+<a id="user-content-piles-dashboard" class="anchor" aria-hidden="true" href="#piles-dashboard"></a>
+Piles Dashboard</h1>
+<blockquote>
 
-OVERVIEW
-•	This project displays a dashboard for a Quality Department whose workforce are different genders, skills and length of service.
+<p>This project displays a dashboard for a Quality Department whose workforce are different genders, skills and length of service.
+The term ‘Piles’ relates to an audit which is carried out daily.  It measures the number of units which require problem solving at different departments in the workplace.  The audit itself is carried out by the Quality Assurance Department at the earliest time after midnight, the details of the audit can then be commented on by department managers, where, they can action their team to reduce the problems if required.</P>
 
-•	The term ‘Piles’ relates to an audit which is carried out daily.  It measures the number of units which require problem solving at different departments in the workplace.  The audit itself is carried out by the Quality Assurance Department at the earliest time after midnight, the details of the audit can then be commented on by department managers, where, they can action their team to reduce the problems if required.
+<h2>
+<a id="user-content-table-of-contents" class="anchor" aria-hidden="true" href="#table-of-contents"></a>
+Table of Contents</h2>
 
+<ol start="2">
+ <li>
+  <a href="#ux">UX</a>
+ </li>
+ <li>
+  <a href="#features">FEATURES</a>
+   <ol>
+    <li>
+     <a href="#single-page">Home Page</a>
+    </li>
+    <li>
+     <a href="#select">Shift Selector</a>
+    </li>
+    <li>
+     <a href="#percentage-display">Gender Percentage Display</a>
+    </li>
+    <li>
+     <a href="#counter">Direct Labour - Counter Graph</a>
+    </li>
+    <li>
+     <a href="#auditor">Indirect Labour - Auditor Graph</a>
+    </li>
+    <li>
+     <a href="#researcher">Indirect Labour - Researcher Graph</a>
+    </li>
+    <li>
+     <a href="#combined">Combined Labour - Stacked Graph</a>
+    </li>
+     <li>
+     <a href="#correlation">Correlation Gender - Linear Graph</a>
+    </li>
+  </ol>
 UX
 •	The data collected in the .csv file relates to real time personnel; this is the department I currently manage.
 
