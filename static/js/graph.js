@@ -35,24 +35,24 @@ function show_shift_selector(ndx) {
 
 function show_percent_that_are_counters(ndx, gender, element) {
     var percentageThatAreCounters = ndx.groupAll().reduce(
-        function(p, v) {
-            if (v.sex === gender) {
-                p.count++;
-                if (v.rank === "Counter") {
-                    p.are_counters++;
+        function(accumulator, data) {
+            if (data.sex === gender) {
+                accumulator.count++;
+                if (data.rank === "Counter") {
+                    accumulator.are_counters++;
                 }
             }
-            return p;
+            return accumulator;
         },
-        function(p, v) {
-            if (v.sex === gender) {
-                p.count--;
-                if (v.rank === "Counter") {
-                    p.are_counters--;
+        function(accumulator, data) {
+            if (data.sex === gender) {
+                accumulator.count--;
+                if (data.rank === "Counter") {
+                    accumulator.are_counters--;
 
                 }
             }
-            return p;
+            return accumulator;
         },
         function() {
             return { count: 0, are_counters: 0 }
@@ -78,8 +78,8 @@ function show_gender_balance(ndx) {
     var group = dim.group();
 
     dc.barChart("#direct-counting")
-        .width(400)
-        .height(300)
+        .width(350)
+        .height(250)
         .margins({ top: 10, right: 60, bottom: 30, left: 60 })
         .dimension(dim)
         .group(group)
@@ -94,22 +94,22 @@ function show_gender_balance(ndx) {
 function show_auditor_distribution(ndx) {
     
      var dim = ndx.dimension(dc.pluck('sex'));
-     /*p represents an accumulator - keeps track of the count*/
-     /*v represents the data item*/
+     /*accumulator represents an accumulator - keeps track of the count*/
+     /*data represents the data item*/
      var auditorByGender = dim.group().reduce(
-         function (p, v) {
-             p.total++;
-             if(v.rank == 'Auditor') {
-                 p.match++;
+         function (accumulator, data) {
+             accumulator.total++;
+             if(data.rank == 'Auditor') {
+                 accumulator.match++;
              }
-             return p;
+             return accumulator;
          },
-         function (p, v) {
-             p.total--;
-             if(v.rank == 'Auditor') {
-                 p.match--;
+         function (accumulator, data) {
+             accumulator.total--;
+             if(data.rank == 'Auditor') {
+                 accumulator.match--;
              }
-             return p;
+             return accumulator;
          },
          function () {
              return {total: 0, match: 0};
@@ -118,21 +118,21 @@ function show_auditor_distribution(ndx) {
 
     function rankByGender (dimension, rank) {
         return dimension.group().reduce(
-      /*p represents an accumulator - keeps track of the count*/
-     /*v represents the data item*/
-            function (p, v) {
-             p.total++;
-             if(v.rank == rank) {
-                 p.match++;
+      /*accumulator represents an accumulator - keeps track of the count*/
+     /*data represents the data item*/
+            function (accumulator, data) {
+             accumulator.total++;
+             if(data.rank == rank) {
+                 accumulator.match++;
              }
-             return p;
+             return accumulator;
          },
-         function (p, v) {
-             p.total--;
-             if(v.rank == rank) {
-                 p.match--;
+         function (accumulator, data) {
+             accumulator.total--;
+             if(data.rank == rank) {
+                 accumulator.match--;
              }
-             return p;
+             return accumulator;
          },
          function () {
              return {total: 0, match: 0};
@@ -146,8 +146,8 @@ function show_auditor_distribution(ndx) {
     
 
     dc.barChart("#indirect-auditing")
-        .width(400)
-        .height(300)
+        .width(350)
+        .height(250)
         .dimension(dim)
         .group(auditorByGender, 'Auditor')
         .valueAccessor(function (d) {
@@ -169,44 +169,44 @@ function show_auditor_distribution(ndx) {
 function show_researcher_distribution(ndx) {
     
      var dim = ndx.dimension(dc.pluck('sex'));
-      /*p represents an accumulator - keeps track of the count*/
-     /*v represents the data item*/
+      /*accumulator represents an accumulator - keeps track of the count*/
+     /*data represents the data item*/
      var researcherByGender = dim.group().reduce(
-         function (p, v) {
-             p.total++;
-             if(v.rank == 'Researcher') {
-                 p.match++;
+         function (accumulator, data) {
+             accumulator.total++;
+             if(data.rank == 'Researcher') {
+                 accumulator.match++;
              }
-             return p;
+             return accumulator;
          },
-         function (p, v) {
-             p.total--;
-             if(v.rank == 'Researcher') {
-                 p.match--;
+         function (accumulator, data) {
+             accumulator.total--;
+             if(data.rank == 'Researcher') {
+                 accumulator.match--;
              }
-             return p;
+             return accumulator;
          },
          function () {
              return {total: 0, match: 0};
          }
          );
-         /*p represents an accumulator - keeps track of the count*/
-        /*represents the data item*/
+         /*accumulator represents an accumulator - keeps track of the count*/
+     /*data represents the data item*/
     function rankByGender (dimension, rank) {
         return dimension.group().reduce(
-            function (p, v) {
-             p.total++;
-             if(v.rank == rank) {
-                 p.match++;
+            function (accumulator, data) {
+             accumulator.total++;
+             if(data.rank == rank) {
+                 accumulator.match++;
              }
-             return p;
+             return accumulator;
          },
-         function (p, v) {
-             p.total--;
-             if(v.rank == rank) {
-                 p.match--;
+         function (accumulator, data) {
+             accumulator.total--;
+             if(data.rank == rank) {
+                 accumulator.match--;
              }
-             return p;
+             return accumulator;
          },
          function () {
              return {total: 0, match: 0};
@@ -220,8 +220,8 @@ function show_researcher_distribution(ndx) {
     
 
     dc.barChart("#indirect-researching")
-        .width(400)
-        .height(300)
+        .width(350)
+        .height(250)
         .dimension(dim)
         .group(researcherByGender, 'Researcher')
         .valueAccessor(function (d) {
@@ -242,23 +242,23 @@ function show_researcher_distribution(ndx) {
 
 
 function show_rank_distribution(ndx) {
-     /*p represents an accumulator - keeps track of the count*/
-     /*v represents the data item*/
+    /*accumulator represents an accumulator - keeps track of the count*/
+     /*data represents the data item*/
     function rankByGender(dimension, rank) {
         return dimension.group().reduce(
-            function(p, v) {
-                p.total++;
-                if(v.rank == rank) {
-                    p.match++;
+            function(accumulator, data) {
+                accumulator.total++;
+                if(data.rank == rank) {
+                    accumulator.match++;
                 }
-                return p;
+                return accumulator;
             },
-            function (p, v) {
-                p.total--;
-                if(v.rank == rank) {
-                    p.match--;
+            function (accumulator, data) {
+                accumulator.total--;
+                if(data.rank == rank) {
+                    accumulator.match--;
                 }
-                return p;
+                return accumulator;
             },
             function () {
                 return {total: 0, match: 0};
@@ -293,7 +293,7 @@ function show_rank_distribution(ndx) {
     .margins({ top: 60, right: 20, bottom: 60, left: 30 })
     .transitionDuration(500)
     .xAxisLabel("Gender")
-    .yAxisLabel("Percentage of Personnel")
+    .yAxisLabel("percentage of personnel")
 }
     
 

@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Milestone Dashboard Project</title>
+    <title>Piles Dashboard</title>
 
     <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="static/css/dc.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="static/css/style.css" type="text/css" />
 
     <script type="text/javascript" src="static/js/d3.min.js"></script>
@@ -19,30 +19,45 @@
     <script type="text/javascript" src="static/js/graph.js"></script>
 
 </head>
+
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Gender In Quality Assurance</a>
+            </div>
+        </div>
+    </nav>
+
     <main>
         <section class="section">
             <div class="container">
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
-                        <h2 class="section-heading">Gender In Quality Assurance</h2>
-                            <div id="shift-selector"></div>
+                        <h1 class="section-heading">Gender In Quality Assurance</h1>
+                        <div id="shift-selector"></div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
-                        <p class="section-paragraph">Gender in the department:</p>
+                        <p class="section-paragraph">Gender in the QA Department:</p>
                     </div>
-                </div>
+
                     <div class="col-xs-12 col-sm-6 col-lg-6">
                         <i class="fa fa-female fa-gender" aria-hidden="true"></i> <span class="number-box" id="percent-of-women-counters"></span>
                         <i class="fa fa-male fa-gender" aria-hidden="true"></i> <span class="number-box" id="percent-of-men-counters"></span>
+                    </div>
                 </div>
             </div>
-    </section>
+        </section>
+
+
 
     <section class="section">
         <div class="container">
+            
             <div class="row">
                 <div class="col-xs-12 col-sm-4 text-center">
                     <p class="section-paragraph">Direct Labour (Counter) - There are more Male counters than Female</p>
@@ -54,21 +69,23 @@
                     <p class="section-paragraph">Indirect Labour (Researcher) - There are nearly equal number of Male and Female researchers</p>
                 </div>
             </div>
-                <div class="Row">
-                <div class="col-xs-12 col-sm-4 text-center" id="direct-counting" class="custom-chart"></div>
-                <div class="col-xs-12 col-sm-4 text-center" id="indirect-auditing" class="custom-chart"></div>
-                <div class="col-xs-12 col-sm-4 text-center" id="indirect-researching" class="custom-chart"></div>
+            <div class="row">
+            <div class="col-xs-12 col-sm-4 text-center" id="direct-counting" class="custom-chart"></div>
+            <div class="col-xs-12 col-sm-4 text-center" id="indirect-auditing" class="custom-chart"></div>
+            <div class="col-xs-12 col-sm-4 text-center" id="indirect-researching" class="custom-chart"></div>
             </div>
         </div>
     </section>
     
     <section class="section">
         <div class="container">
+            
+            <div class="row">
             <div class="col-xs-12 col-sm-12 text-center">
                 <p class="section-paragraph">Percentage of higher skillset is weighted towards female</p>
             </div>
-            <div class="Row">
-                <div class="col-xs-12 col-sm-12 text-center" id="indirect-combined" class="custom-chart"></div>
+            
+            <div class="col-xs-12 col-sm-12 text-center" id="indirect-combined" class="custom-chart"></div>
             </div>
         </div>
     </section>

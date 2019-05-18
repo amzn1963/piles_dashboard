@@ -136,10 +136,10 @@ Technologies Used</h2>
 <p>All data is stored into a .csv file – originally this data were compiled using Excel.</p>
 <p>To produce all the visualizations, JavaScript became an important feature.  This included the following:</p>
 <p>D3.min.js</p>
-<p>•	Crossfilter.min.js</p>
-<p>	DC.min.js</p>
-<p>	Queue.min.js</p>
-<p>	Graph.js</p>
+<p>Crossfilter.min.js</p>
+<p>DC.min.js</p>
+<p>Queue.min.js</p>
+<p>Graph.js</p>
 
 <h2>
   <a id="user-content-testing" class="anchor" aria-hidden="true" href="#testing"></a> 
